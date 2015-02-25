@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -18,8 +17,12 @@ import com.google.gson.Gson;
 
 public class MainActivity extends Activity implements SendMsgAsyncTask.OnSendScuessListener{
 
-	public static final String APP_KEY = "6VcQVy58uM1v2GQA0YBsupl7";
-	public static final String SECRIT_KEY = "luFEGyoNPPWAfK5BRlM2MNsU5z0aT5Ib";
+	public static final String APP_KEY = "iHmEVoloEv713XLxi15Gql2h";
+	public static final String SECRIT_KEY = "Ly4oTy4eNWsmn51GQpjEKi7AYBGiAFwb";
+    public static final String ChanelID="3883504006876796756";
+    public static final String UID="997508040265924265";
+
+
 	PushApplication app;
 	Gson mGson;
 	
@@ -61,9 +64,12 @@ public class MainActivity extends Activity implements SendMsgAsyncTask.OnSendScu
 	
 	public void send(View v) {
 		String userId = app.getUserId();
+        //test
 		String channelId = app.getChannelId();
 		String msgString = ((EditText)findViewById(R.id.etMsg)).getText().toString();
-		Message message = new Message(userId, channelId, System.currentTimeMillis(), msgString, "");
+//		Message message = new Message(userId, channelId, System.currentTimeMillis(), msgString, "");
+		Message message = new Message(UID, ChanelID, System.currentTimeMillis(), msgString, "");
+        Log.e("PushManager", message.toString());
 		SendMsgAsyncTask task = new SendMsgAsyncTask(mGson.toJson(message), userId);
 		task.setOnSendScuessListener(this);
 		task.send();
