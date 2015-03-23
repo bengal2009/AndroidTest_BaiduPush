@@ -1,7 +1,5 @@
 package cn.bvin.app.test.push;
 
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -9,6 +7,8 @@ import android.util.Log;
 import com.baidu.frontia.api.FrontiaPushMessageReceiver;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
+import java.util.List;
 
 public class MessageReceiver extends FrontiaPushMessageReceiver{
 

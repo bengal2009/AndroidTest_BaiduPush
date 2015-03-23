@@ -1,8 +1,8 @@
 package cn.bvin.app.test.push;
 
-import java.io.Serializable;
-
 import com.google.gson.annotations.Expose;
+
+import java.io.Serializable;
 
 public class Message implements Serializable{
 	/**
@@ -82,7 +82,7 @@ public class Message implements Serializable{
 	public String toString() {
 		return "Message [user_id=" + user_id + ", channel_id=" + channel_id
 				+  ", time_samp="
-				+ time_samp + ", message=" + message + ", tag=" + tag + "]";
+				+ time_samp + ", message=" + message+ ", tag=" + tag + "]";
 	}
 
 }

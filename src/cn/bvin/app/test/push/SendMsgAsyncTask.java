@@ -2,7 +2,6 @@ package cn.bvin.app.test.push;
 
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 
 
@@ -58,7 +57,8 @@ public class SendMsgAsyncTask {
 		@Override
 		protected String doInBackground(Void... message) {
 			String result = "";
-				result = mBaiduPush.PushTagMessage(mMessage, "TAG_GROUP");
+				result = mBaiduPush.PushTagMessage(mMessage, "eva");
+//				result = mBaiduPush.PushNotifyAll("Benny",mMessage);
 			return result;
 		}
 

@@ -1,5 +1,7 @@
 package cn.bvin.app.test.push;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStream;
@@ -10,8 +12,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.util.Map;
-
-import android.util.Log;
 
 
 public class BaiduPush {
@@ -324,12 +324,14 @@ public class BaiduPush {
 	public String PushMessage(String message, String userid) {
 		RestApi ra = new RestApi(RestApi.METHOD_PUSH_MESSAGE);
 		ra.put(RestApi._MESSAGE_TYPE, RestApi.MESSAGE_TYPE_MESSAGE);
+//        Log.e("MessageType",RestApi.MESSAGE_TYPE_NOTIFY);
+//		ra.put(RestApi._MESSAGE_TYPE, RestApi.MESSAGE_TYPE_NOTIFY);
 		ra.put(RestApi._MESSAGES, message);
 		ra.put(RestApi._MESSAGE_KEYS, MSGKEY);
 		// ra.put(RestApi._MESSAGE_EXPIRES, "86400");
 		// ra.put(RestApi._CHANNEL_ID, "");
 		ra.put(RestApi._PUSH_TYPE, RestApi.PUSH_TYPE_USER);
-		// ra.put(RestApi._DEVICE_TYPE, RestApi.DEVICE_TYPE_ANDROID);
+		ra.put(RestApi._DEVICE_TYPE, RestApi.DEVICE_TYPE_ANDROID);
 		ra.put(RestApi._USER_ID, userid);
 		return PostHttpRequest(ra);
 	}

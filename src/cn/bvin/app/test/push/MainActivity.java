@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -18,8 +17,8 @@ import com.google.gson.Gson;
 
 public class MainActivity extends Activity implements SendMsgAsyncTask.OnSendScuessListener{
 
-	public static final String APP_KEY = "6VcQVy58uM1v2GQA0YBsupl7";
-	public static final String SECRIT_KEY = "luFEGyoNPPWAfK5BRlM2MNsU5z0aT5Ib";
+	public static final String APP_KEY = "mzaavB1EGEG8qGqeE5FhrLFy";
+	public static final String SECRIT_KEY = "GtTVNLhStO3UaSmEBLkXOqF9sFCNVzmr";
 	PushApplication app;
 	Gson mGson;
 	
@@ -63,7 +62,7 @@ public class MainActivity extends Activity implements SendMsgAsyncTask.OnSendScu
 		String userId = app.getUserId();
 		String channelId = app.getChannelId();
 		String msgString = ((EditText)findViewById(R.id.etMsg)).getText().toString();
-		Message message = new Message(userId, channelId, System.currentTimeMillis(), msgString, "");
+		Message message = new Message(userId, channelId, System.currentTimeMillis(), msgString, "eva");
 		SendMsgAsyncTask task = new SendMsgAsyncTask(mGson.toJson(message), userId);
 		task.setOnSendScuessListener(this);
 		task.send();
@@ -74,6 +73,11 @@ public class MainActivity extends Activity implements SendMsgAsyncTask.OnSendScu
 		SetTagTask task = new SetTagTask("TAG_GROUP", userId);
 		task.setTags();
 	}
+    public void setBennyTag(View v) {
+        String userId = app.getUserId();
+        SetTagTask task = new SetTagTask("TAG_GROUP", "benny");
+        task.setTags();
+    }
 
 	@Override
 	public void sendScuess() {

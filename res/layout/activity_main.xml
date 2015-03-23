@@ -48,5 +48,16 @@
         android:layout_marginRight="17dp"
         android:onClick="setTag"
         android:text="设置tag" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="24dp"
+        android:onClick="setBennyTag"
+        android:text="设置Bennytag"
+        android:layout_alignTop="@+id/button1"
+        android:layout_toLeftOf="@+id/button1"
+        android:layout_toStartOf="@+id/button1"
+        android:layout_marginEnd="24dp" />
 
 </RelativeLayout>
